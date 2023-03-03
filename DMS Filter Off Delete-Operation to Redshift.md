@@ -10,7 +10,7 @@ This may not always be the desired behavior. For example, you may need to clean 
 
 By default, DMS doesn't provide a direct configuration to filter off delete operations. This article demonstrates how to use `operation_indicator` to flag records in target tables as inserted, updated, or deleted in the source table, thus records deleted from the source aren't deleted from the target. Instead, the target record is flagged with a user-provided value to indicate that it was deleted from the source.
 
-![image-20230220143547671](./DMS%20Filter%20Off%20Delete-Operation%20to%20Redshift.assets/image-20230220143547671.png)
+![image-20230220143547671](assets/DMS%20Filter%20Off%20Delete-Operation%20to%20Redshift.assets/image-20230220143547671.png)
 
 ## Steps
 
@@ -36,7 +36,7 @@ By default, DMS doesn't provide a direct configuration to filter off delete oper
 
 5. In DSM Console, create a source endpoint from an existing RDS database and a target endpoint to an existing Redshift database. Test both endpoints to make sure both have successful status. 
 
-   ![image-20230220150928185](./DMS%20Filter%20Off%20Delete-Operation%20to%20Redshift.assets/image-20230220150928185.png)
+   ![image-20230220150928185](assets/DMS%20Filter%20Off%20Delete-Operation%20to%20Redshift.assets/image-20230220150928185.png)
 
 6. Create a database migration task using above endpoints.
 
@@ -98,7 +98,7 @@ By default, DMS doesn't provide a direct configuration to filter off delete oper
    SELECT * FROM "dev"."dev"."test" order by id;
    ```
 
-   ![image-20230220160952366](./DMS%20Filter%20Off%20Delete-Operation%20to%20Redshift.assets/image-20230220160952366.png)
+   ![image-20230220160952366](assets/DMS%20Filter%20Off%20Delete-Operation%20to%20Redshift.assets/image-20230220160952366.png)
 
 3. In source datase, update the 2nd record (id = 2), and delete the 3rd record (id=3).
 
@@ -109,7 +109,7 @@ By default, DMS doesn't provide a direct configuration to filter off delete oper
 
 4. In Redshift console, examine the data in target table. The `operation` status of 2nd and 3rd records have changed to `U` and `D` respectively, which represent `Updated` and `Deleted` respectively.
 
-   ![image-20230220161353712](./DMS%20Filter%20Off%20Delete-Operation%20to%20Redshift.assets/image-20230220161353712.png)
+   ![image-20230220161353712](assets/DMS%20Filter%20Off%20Delete-Operation%20to%20Redshift.assets/image-20230220161353712.png)
 
 
 

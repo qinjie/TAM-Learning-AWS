@@ -5,17 +5,17 @@
 1. Create a public domain `qinjie.com` in Route53.
    * Add 2 TXT records `test.qinjie.com` and `banned.qinjie.com`
 
-   ![image-20230214132849351](./IAM%20Policy%20to%20Restrict%20Updating%20Route53%20Recordsets.assets/image-20230214132849351.png)
+   ![image-20230214132849351](assets/IAM%20Policy%20to%20Restrict%20Updating%20Route53%20Recordsets.assets/image-20230214132849351.png)
 
 2. Create another public domain `zhang.com` in Route53.
 
    * Add 2 TXT records, `test.zhang.com` and `banned.zhang.com`.
 
-   ![image-20230214132912533](./IAM%20Policy%20to%20Restrict%20Updating%20Route53%20Recordsets.assets/image-20230214132912533.png)
+   ![image-20230214132912533](assets/IAM%20Policy%20to%20Restrict%20Updating%20Route53%20Recordsets.assets/image-20230214132912533.png)
 
 3. Now we have 2 public domains for testing.
 
-   ![image-20230214132936283](./IAM%20Policy%20to%20Restrict%20Updating%20Route53%20Recordsets.assets/image-20230214132936283.png)
+   ![image-20230214132936283](assets/IAM%20Policy%20to%20Restrict%20Updating%20Route53%20Recordsets.assets/image-20230214132936283.png)
 
    
 
@@ -156,7 +156,7 @@ def lambda_handler(event, context):
 
 8. Run the Lambd to test. Can see that only updating of first record set is successful. 
 
-![image-20230214133509350](./IAM%20Policy%20to%20Restrict%20Updating%20Route53%20Recordsets.assets/image-20230214133509350.png)
+![image-20230214133509350](assets/IAM%20Policy%20to%20Restrict%20Updating%20Route53%20Recordsets.assets/image-20230214133509350.png)
 
 
 

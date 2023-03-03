@@ -39,11 +39,11 @@ Set the timezone of RDS to `Asia/Shanghai`.
 
 1. Update the cluster parameter group of RDS.
 
-   ![image-20230301113918391](./Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301113918391.png)
+   ![image-20230301113918391](assets/Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301113918391.png)
 
 2. Update the parameter group by setting `time-zone` to `Asia/Shanghai`.
 
-   ![image-20230301114658419](./Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301114658419.png)
+   ![image-20230301114658419](assets/Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301114658419.png)
 
 3. Must restart all DB instances in the cluster.
 
@@ -119,7 +119,7 @@ When both RDS and Redshift are in deafult timezone of UTC, the migrated
 
 2. Examine the data in Redshift. Their `update_time` field values are 8 hours earlier (-8) than the corresponding value in RDS.
 
-   ![image-20230301130406707](./Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301130406707.png)
+   ![image-20230301130406707](assets/Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301130406707.png)
 
 
 
@@ -142,7 +142,7 @@ When both RDS and Redshift are in deafult timezone of UTC, the migrated
 
 4. Examine the data in Redshift. Their `update_time` field values are 8 hours earlier (-8) than the corresponding value in RDS.
 
-   ![image-20230301130406707](./Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301130406707.png)
+   ![image-20230301130406707](assets/Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301130406707.png)
 
 
 
@@ -150,15 +150,15 @@ When both RDS and Redshift are in deafult timezone of UTC, the migrated
 
 1. Modify the DMS source endpoint, which is pointing to the RDS.
 
-   ![image-20230301131140951](./Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301131140951.png)
+   ![image-20230301131140951](assets/Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301131140951.png)
 
 2. Add an extra connection attributes `serverTimezone=Asia/Singapore` to specify the server timezone. 
 
-   ![image-20230301131210017](./Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301131210017.png)
+   ![image-20230301131210017](assets/Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301131210017.png)
 
 3. Examine the data in Redshift. Their `update_time` field values are 8 hours earlier (-8) than the corresponding value in RDS.
 
-   ![image-20230301130406707](./Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301130406707.png)
+   ![image-20230301130406707](assets/Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301130406707.png)
 
 
 
@@ -167,11 +167,11 @@ When both RDS and Redshift are in deafult timezone of UTC, the migrated
 
 1. Stop the DMS task and modify the DMS target endpoint.
 
-   ![image-20230301132701400](./Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301132701400.png)
+   ![image-20230301132701400](assets/Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301132701400.png)
 
 2. Update the extra connection attributes as `initstmt=SET TIMEZONE='Asia/Singapore'`, where `SET TIMEZONE='Asia/Singapore'` is the statement to set the timezone of Redshift.
 
-   ![image-20230301134246936](./Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301134246936.png)
+   ![image-20230301134246936](assets/Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301134246936.png)
 
    
 
@@ -179,5 +179,5 @@ When both RDS and Redshift are in deafult timezone of UTC, the migrated
 
 4. Examine the data in Redshift. The `update_time` is migrated correctly.
 
-   ![image-20230301135759644](./Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301135759644.png)
+   ![image-20230301135759644](assets/Configure%20DMS%20to%20Preserve%20Timestamp%20without%20Timezone%20Data.assets/image-20230301135759644.png)
 
